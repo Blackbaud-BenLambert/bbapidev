@@ -1,1 +1,31 @@
-An object representing the <a href="/constituent-management-contract-reference#Attachment">attachment</a> to add.  Note that only "link" attachments can be added via the API at this time.
+An object representing the <a href="/constituent-management-contract-reference#Attachment">attachment</a> to add.
+                        
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>string</td>
+            <td>The attachment name.</td>
+        </tr>
+        <tr>
+            <td>types</td>
+            <td>array of string</td>
+            <td>Optional. The set of types (tags) associated with the attachment, from the <b>Document Types</b> table.</td>
+        </tr>
+        <tr>
+            <td>kind</td>
+            <td>string</td>
+            <td>Required.  The attachment kind. Note that only "link" attachments can be added via the API at this time.</td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td>string</td>
+            <td>The attachment URL.</td>
+        </tr>
+    </tbody>
+</table>

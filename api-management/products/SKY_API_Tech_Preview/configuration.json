@@ -17,6 +17,6 @@
   ],
   "$refs-apis": [
     "api-management/apis/Constituent/configuration.json",
-    "api-management/apis/General_Ledger/configuration.json"
+    "api-management/apis/General_Ledger_(coming_soon)/configuration.json"
   ]
 }

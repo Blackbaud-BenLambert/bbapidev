@@ -8,24 +8,24 @@ An object representing the <a href="/constituent-management-contract-reference#A
             <th>Description</th>
         </tr>
         <tr>
-            <td>constituent_id<span style="color: red">*</span></td>
+            <td>constituent_id</td>
             <td>string</td>
-            <td>The constituent identifier.</td>
+            <td>Required.  The constituent identifier.</td>
         </tr>
         <tr>
-            <td>category<span style="color: red">*</span></td>
+            <td>category</td>
             <td>string</td>
-            <td>The action category.</td>
+            <td>Required.  The action category.</td>
         </tr>
         <tr>
             <td>type</td>
             <td>string</td>
-            <td>The action type.</td>
+            <td>The action type, from the <b>Action Types</b> table.</td>
         </tr>
         <tr>
-            <td>date<span style="color: red">*</span></td>
             <td>date</td>
-            <td>The action date.</td>
+            <td>dateTime</td>
+            <td>Required.  The action date, in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601 format: </a><span class="code">2015-09-18T16:25:00Z</span></td>
         </tr>
         <tr>
             <td>summary</td>
@@ -43,14 +43,9 @@ An object representing the <a href="/constituent-management-contract-reference#A
             <td>Indicates whether or not the action has been completed - note that this value will be set based on the action status value if the system has been configured to use custom action statuses.  Available values are <b>true</b> or <b>false</b>.  If no value is specified, a value of <b>false</b> is assumed.</td>
         </tr>
         <tr>
-            <td>completed_date</td>
-            <td>date</td>
-            <td>Indicates the date on which the action was completed.</td>
-        </tr>
-        <tr>
             <td>status</td>
             <td>string</td>
-            <td>The action status (only applicable if the system has been configured to use custom action statuses)</td>
+            <td>The action status, from the <b>Action Statuses</b> table (only applicable if the system has been configured to use custom action statuses)</td>
         </tr>
         <tr>
             <td>fundraisers</td>

@@ -2,7 +2,7 @@
   "id": "/apis/555e9a019e4eda162cc58d2c",
   "name": "Constituent",
   "$ref-description": "api-management/apis/Constituent/api.description.html",
-  "serviceUrl": "http://www.placeholder.com",
+  "serviceUrl": "https://www.blackbaud.com",
   "path": "constituent/v1",
   "protocols": [
     "https"
@@ -102,9 +102,9 @@
       ]
     },
     {
-      "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76e3",
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d055c",
       "name": "Action (Edit)",
-      "method": "PUT",
+      "method": "PATCH",
       "urlTemplate": "/actions/{actionId}",
       "templateParameters": [
         {
@@ -300,6 +300,33 @@
       ]
     },
     {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d055d",
+      "name": "Address types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/addresstypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Address_types_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Address_types_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Address_types_(Get_list).response.200.application_json.html"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
       "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76e6",
       "name": "Attachment (Create)",
       "method": "POST",
@@ -406,7 +433,7 @@
         "$ref-description": null,
         "queryParameters": [
           {
-            "name": "top",
+            "name": "limit",
             "description": "Optional.  Represents the number of records to return.  If not specified, the default is 100.  The maximum allowed value is 500.",
             "type": "string",
             "defaultValue": null,
@@ -414,8 +441,32 @@
             "values": []
           },
           {
-            "name": "skip",
+            "name": "offset",
             "description": "Optional.  Represents the number of records to skip, for use with pagination.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "date_added",
+            "description": "Optional.  Represents a filter for constituents who have been added on or after this date. This filter respects time offsets from UTC per the ISO-8601 format: 2016-05-05T17:59:31.1600745-04:00.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "last_modified",
+            "description": "Optional.  Represents a filter for constituents who have been modified on or after this date. This filter respects time offsets from UTC per the ISO-8601 format: 2016-05-05T17:59:31.1600745-04:00.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "sort_token",
+            "description": "Optional.  Represents a token filter for providing the next stable-sorted list of constituents. This will be provided on the next_link collection response property when last_modified or sort_token filters are specified on the request.",
             "type": "string",
             "defaultValue": null,
             "required": false,
@@ -526,6 +577,142 @@
       ]
     },
     {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d055f",
+      "name": "Constituent code (Create)",
+      "method": "POST",
+      "urlTemplate": "/constituentcodes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Create).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Create).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Constituent_code_(Create).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Create).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Create).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Create).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0560",
+      "name": "Constituent code (Delete)",
+      "method": "DELETE",
+      "urlTemplate": "/constituentcodes/{constituentCodeId}",
+      "templateParameters": [
+        {
+          "name": "constituentCodeId",
+          "description": "The ID of the constituent code to delete.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Delete).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Delete).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Delete).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Delete).response.403.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d055e",
+      "name": "Constituent code (Edit)",
+      "method": "PATCH",
+      "urlTemplate": "/constituentcodes/{constituentCodeId}",
+      "templateParameters": [
+        {
+          "name": "constituentCodeId",
+          "description": "The ID of the constituent code to edit.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Constituent_code_(Edit).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).response.403.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Edit).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
       "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76e9",
       "name": "Constituent code (Get list)",
       "method": "GET",
@@ -569,6 +756,33 @@
           "statusCode": 404,
           "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_(Get_list).response.404.description.html",
           "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0561",
+      "name": "Constituent code types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/constituentcodetypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_types_(Ge12AHJXH.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Constituent_code_types_(Ge12AHJXH.response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Constituent_code_types_(Ge12AHJXH.response.200.application_json.html"
+            }
+          ],
           "headers": []
         }
       ]
@@ -670,6 +884,136 @@
       ]
     },
     {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0562",
+      "name": "Email address (Create)",
+      "method": "POST",
+      "urlTemplate": "/emailaddresses",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Create).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Create).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Email_address_(Create).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Create).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Create).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Create).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0564",
+      "name": "Email address (Delete)",
+      "method": "DELETE",
+      "urlTemplate": "/emailaddresses/{emailAddressId}",
+      "templateParameters": [
+        {
+          "name": "emailAddressId",
+          "description": "The ID of the email address to delete.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Delete).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Delete).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Delete).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Delete).response.403.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0563",
+      "name": "Email address (Edit)",
+      "method": "PATCH",
+      "urlTemplate": "/emailaddresses/{emailAddressId}",
+      "templateParameters": [
+        {
+          "name": "emailAddressId",
+          "description": "The ID of the email address to edit.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Edit).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Edit).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Email_address_(Edit).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Edit).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Edit).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Edit).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
       "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76ec",
       "name": "Email address (Get list)",
       "method": "GET",
@@ -713,6 +1057,33 @@
           "statusCode": 404,
           "$ref-description": "api-management/apis/Constituent/operations/Email_address_(Get_list).response.404.description.html",
           "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0565",
+      "name": "Email address types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/emailaddresstypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Email_address_types_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Email_address_types_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Email_address_types_(Get_list).response.200.application_json.html"
+            }
+          ],
           "headers": []
         }
       ]
@@ -848,9 +1219,9 @@
       ]
     },
     {
-      "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76f1",
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0566",
       "name": "Note (Edit)",
-      "method": "PUT",
+      "method": "PATCH",
       "urlTemplate": "/notes/{noteId}",
       "templateParameters": [
         {
@@ -998,6 +1369,169 @@
       ]
     },
     {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0567",
+      "name": "Note types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/notetypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Note_types_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Note_types_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Note_types_(Get_list).response.200.application_json.html"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0569",
+      "name": "Online presence (Create)",
+      "method": "POST",
+      "urlTemplate": "/onlinepresences",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Create).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Create).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Online_presence_(Create).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Create).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Create).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Create).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056a",
+      "name": "Online presence (Delete)",
+      "method": "DELETE",
+      "urlTemplate": "/onlinepresences/{onlinePresenceId}",
+      "templateParameters": [
+        {
+          "name": "onlinePresenceId",
+          "description": "The ID of the constituent online presence to delete.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Delete).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Delete).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Delete).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Delete).response.403.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d0568",
+      "name": "Online presence (Edit)",
+      "method": "PATCH",
+      "urlTemplate": "/onlinepresences/{onlinePresenceId}",
+      "templateParameters": [
+        {
+          "name": "onlinePresenceId",
+          "description": "The ID of the online presence to edit.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Online_presence_(Edit).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).response.403.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Edit).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
       "id": "/apis/555e9a019e4eda162cc58d2c/operations/56f1aad79e4eda14109e76f3",
       "name": "Online presence (Get list)",
       "method": "GET",
@@ -1040,6 +1574,169 @@
         {
           "statusCode": 404,
           "$ref-description": "api-management/apis/Constituent/operations/Online_presence_(Get_list).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056b",
+      "name": "Online presence types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/onlinepresencetypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Online_presence_types_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Online_presence_types_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Online_presence_types_(Get_list).response.200.application_json.html"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056d",
+      "name": "Phone (Create)",
+      "method": "POST",
+      "urlTemplate": "/phones",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Phone_(Create).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Phone_(Create).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Phone_(Create).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Create).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Create).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Create).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056e",
+      "name": "Phone (Delete)",
+      "method": "DELETE",
+      "urlTemplate": "/phones/{phoneId}",
+      "templateParameters": [
+        {
+          "name": "phoneId",
+          "description": "The ID of the constituent phone to delete.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Phone_(Delete).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Delete).response.200.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Delete).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Delete).response.403.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056c",
+      "name": "Phone (Edit)",
+      "method": "PATCH",
+      "urlTemplate": "/phones/{phoneId}",
+      "templateParameters": [
+        {
+          "name": "phoneId",
+          "description": "The ID of the phone to edit.",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).description.html",
+      "request": {
+        "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).request.html",
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Constituent/operations/Phone_(Edit).request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 403,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).response.403.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_(Edit).response.404.description.html",
           "representations": [],
           "headers": []
         }
@@ -1089,6 +1786,33 @@
           "statusCode": 404,
           "$ref-description": "api-management/apis/Constituent/operations/Phone_(Get_list).response.404.description.html",
           "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/555e9a019e4eda162cc58d2c/operations/5748934d9e4eda153c9d056f",
+      "name": "Phone types (Get list)",
+      "method": "GET",
+      "urlTemplate": "/phonetypes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Constituent/operations/Phone_types_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Constituent/operations/Phone_types_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": "api-management/apis/Constituent/operations/Phone_types_(Get_list).response.200.application_json.html"
+            }
+          ],
           "headers": []
         }
       ]

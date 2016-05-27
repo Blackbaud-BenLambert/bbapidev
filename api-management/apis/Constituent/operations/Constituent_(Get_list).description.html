@@ -1,1 +1,15 @@
-Returns a list of constituents.
+Returns a paginated list of constituents.
+<p />
+Certain parameters affect sorting:
+<p />
+<ul>
+    <li>last_modified: Sorts in the order the constituents were last modified, ascending.</li>
+    <li>sort_token: Sorts in the order the constituents were last modified, ascending.</li>
+    <li>date_added: Sorts in the order the constituents were added, ascending.</li>
+</ul>
+<p />
+The above list denotes sort precedence. Example: when both last_modified and date_added parameters are specified, the list is sorted in the order the constituents were last modified. Example 2: when both sort_token and date_added parameters are specified, the list is sorted in the order the constituents were last modified.
+<p />
+If no parameters are specified, the list is ordered by name (<i>last name</i> for individuals, <i>organization name</i> for organizations).
+<p /><p />
+<b>Note:</b>  the data returned by this endpoint may have a latency of up to 15 minutes.
