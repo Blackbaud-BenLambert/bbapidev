@@ -1,0 +1,8 @@
+{
+  "Name": "SignUpTemplate",
+  "DisplayName": "Sign Up page",
+  "Description": "",
+  "Published": null,
+  "Draft": "<h2 class=\"text-center\">{% localized \"SignupStrings|PageTitleSignup\" %}</h2>\r\n<p class=\"text-center\">\r\n  {% localized \"SignupStrings|WebAuthenticationAlreadyAMember\" %} <a href=\"/signin\">{% localized \"SignupStrings|WebAuthenticationSigninNow\" %}</a>\r\n</p>\r\n\r\n<div class=\"row center-block ap-idp-container\">\r\n  <div class=\"col-md-6\">\r\n    <p>{% localized \"SignupStrings|WebAuthenticationCreateNewAccount\" %}</p>\r\n    <sign-up></sign-up>\r\n  </div>\r\n</div>",
+  "$ref-Original": "api-management/portalTemplates/SignUpTemplate/template.html"
+}

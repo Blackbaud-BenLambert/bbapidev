@@ -1,0 +1,8 @@
+{
+  "Name": "NotFoundPage",
+  "DisplayName": "Not found page",
+  "Description": "",
+  "Published": null,
+  "Draft": "<h2>{% localized \"NotFoundStrings|PageTitleNotFound\" %}</h2>\r\n\r\n<h3>{% localized \"NotFoundStrings|TitlePotentialCause\" %}</h3>\r\n<ul>\r\n  <li>{% localized \"NotFoundStrings|TextblockPotentialCauseOldLink\" %}</li>\r\n  <li>{% localized \"NotFoundStrings|TextblockPotentialCauseMisspelledUrl\" %}</li>\r\n</ul>\r\n\r\n<h3>{% localized \"NotFoundStrings|TitlePotentialSolution\" %}</h3>\r\n<ul>\r\n  <li>{% localized \"NotFoundStrings|TextblockPotentialSolutionRetype\" %}</li>\r\n  <li>\r\n    {% capture textPotentialSolutionStartOver %}{% localized \"NotFoundStrings|TextblockPotentialSolutionStartOver\" %}{% endcapture %}\r\n    {% capture homeLink %}<a href=\"/\">{% localized \"NotFoundStrings|LinkLabelHomePage\" %}</a>{% endcapture %}\r\n    {% assign replaceString = '{0}' %}\r\n\r\n    {{ textPotentialSolutionStartOver | replace : replaceString, homeLink }}\r\n  </li>\r\n</ul>\r\n\r\n<p>\r\n  {% capture textReportProblem %}{% localized \"NotFoundStrings|TextReportProblem\" %}{% endcapture %}\r\n  {% capture emailLink %}<a href=\"mailto:apimgmt@microsoft.com\" target=\"_self\" title=\"API Management Support\">{% localized \"NotFoundStrings|LinkLabelSendUsEmail\" %}</a>{% endcapture %}\r\n  {% assign replaceString = '{0}' %}\r\n\r\n  {{ textReportProblem | replace : replaceString, emailLink }}\r\n</p>",
+  "$ref-Original": "api-management/portalTemplates/NotFoundPage/template.html"
+}

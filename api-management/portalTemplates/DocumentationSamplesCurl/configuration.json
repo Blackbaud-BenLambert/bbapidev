@@ -1,0 +1,8 @@
+{
+  "Name": "DocumentationSamplesCurl",
+  "DisplayName": "Code samples: CURL",
+  "Description": "",
+  "Published": null,
+  "Draft": "@ECHO OFF\r\n\r\ncurl -v -X {{method}} \"{{scheme}}://{{host}}{{path}}{{query | escape }}\"\r\n{% for header in headers -%}\r\n-H \"{{ header.name }}: {{ header.value }}\"\r\n{% endfor -%}\r\n{% if body -%} \r\n--data-ascii \"{{ body | replace:'\"','^\"' }}\" \r\n{% endif -%}\r\n",
+  "$ref-Original": "api-management/portalTemplates/DocumentationSamplesCurl/template.html"
+}

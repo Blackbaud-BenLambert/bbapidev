@@ -1,0 +1,225 @@
+{
+  "id": "/apis/54c12d71ce82280329040001",
+  "name": "Echo API",
+  "$ref-description": null,
+  "serviceUrl": "http://echoapi.cloudapp.net/api",
+  "path": "echo",
+  "protocols": [
+    "https"
+  ],
+  "authenticationSettings": {
+    "oAuth2": null,
+    "openid": null
+  },
+  "subscriptionKeyParameterNames": {
+    "header": "bb-apim-subscription-key",
+    "query": "subscription-key"
+  },
+  "operations": [
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080005",
+      "name": "DELETE Resource",
+      "method": "DELETE",
+      "urlTemplate": "/resource",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/DELETE_Resource.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": null,
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080001",
+      "name": "GET Resource",
+      "method": "GET",
+      "urlTemplate": "/resource",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/GET_Resource.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [
+          {
+            "name": "param1",
+            "description": "A sample parameter that is required and has a default value of \"sample\".",
+            "type": "string",
+            "defaultValue": "sample",
+            "required": true,
+            "values": [
+              "sample"
+            ]
+          },
+          {
+            "name": "param2",
+            "description": "Another sample parameter, set to not required.",
+            "type": "number",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          }
+        ],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/Echo_API/operations/GET_Resource.response.200.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080002",
+      "name": "GET Resource (cached)",
+      "method": "GET",
+      "urlTemplate": "/resource-cached",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/GET_Resource_(cached).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [
+          {
+            "name": "param1",
+            "description": "A sample parameter that is required and has a default value of \"sample\".",
+            "type": "string",
+            "defaultValue": "sample",
+            "required": true,
+            "values": [
+              "sample"
+            ]
+          },
+          {
+            "name": "param2",
+            "description": "Another sample parameter, set to not required.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          }
+        ],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": null,
+          "representations": [],
+          "headers": []
+        }
+      ],
+      "$ref-policy": "api-management/policies/apis/Echo_API/operations/GET_Resource_(cached).xml"
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080006",
+      "name": "HEAD Resource",
+      "method": "HEAD",
+      "urlTemplate": "/resource",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/HEAD_Resource.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": null,
+          "representations": [],
+          "headers": []
+        }
+      ],
+      "$ref-policy": "api-management/policies/apis/Echo_API/operations/HEAD_Resource.xml"
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080004",
+      "name": "POST Resource",
+      "method": "POST",
+      "urlTemplate": "/resource",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/POST_Resource.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": "api-management/apis/Echo_API/operations/POST_Resource.request.application_json.html"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": null,
+          "representations": [],
+          "headers": []
+        }
+      ],
+      "$ref-policy": "api-management/policies/apis/Echo_API/operations/POST_Resource.xml"
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/54c12d71ce82280329080003",
+      "name": "PUT Resource",
+      "method": "PUT",
+      "urlTemplate": "/resource",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/Echo_API/operations/PUT_Resource.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": null,
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/54c12d71ce82280329040001/operations/55821a029e4eda1160b51c00",
+      "name": "Search",
+      "method": "GET",
+      "urlTemplate": "/search?searchText={searchText}",
+      "templateParameters": [
+        {
+          "name": "searchText",
+          "description": "The search text",
+          "type": "string",
+          "defaultValue": null,
+          "required": true,
+          "values": [
+            "john sm"
+          ]
+        }
+      ],
+      "$ref-description": "api-management/apis/Echo_API/operations/Search.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": []
+    }
+  ],
+  "apiSchemas": []
+}

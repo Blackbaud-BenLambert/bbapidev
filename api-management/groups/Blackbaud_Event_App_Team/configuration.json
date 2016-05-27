@@ -1,0 +1,8 @@
+{
+  "id": "/groups/56e837a59e4eda17580ef2fd",
+  "name": "Blackbaud Event App Team",
+  "$ref-description": "api-management/groups/Blackbaud_Event_App_Team/description.html",
+  "builtIn": false,
+  "type": "custom",
+  "externalId": null
+}

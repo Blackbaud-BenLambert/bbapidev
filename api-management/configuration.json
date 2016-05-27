@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "DelegationEnabled": "True",
+    "DelegationUrl": "https://delegation.apim.blackbaud-dev.com/apiminstances/54c12d71ce82280329030003/apimdelegation",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": "VCY8KaEBv5iZKhE1MVTRG42gRzf2ru6NGwcFov3piDzgzTQG7W0qiDjHtLuQ+4Vg7TLQV1UnD1Hk8Qzwr6xxIQ==",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False"
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}

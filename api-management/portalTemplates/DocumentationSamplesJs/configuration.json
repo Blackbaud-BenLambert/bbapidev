@@ -1,0 +1,8 @@
+{
+  "Name": "DocumentationSamplesJs",
+  "DisplayName": "Code samples: JavaScript",
+  "Description": "",
+  "Published": null,
+  "Draft": "&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n    &lt;title&gt;JSSample&lt;/title&gt;\r\n    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n\r\n&lt;script type=&quot;text/javascript&quot;&gt;\r\n    $(function() {\r\n        var params = {\r\n{% if parameters.size &gt; 0 -%}\r\n            // Request parameters\r\n{% for parameter in parameters -%}\r\n            &quot;{{parameter.name}}&quot;: &quot;{{parameter.value}}&quot;,\r\n{% endfor -%}\r\n{% endif -%}\r\n        };\r\n      \r\n        $.ajax({\r\n            url: &quot;{{scheme}}://{{host}}{{path}}{% if path contains '?' %}&{% else %}?{% endif %}&quot; + $.param(params),\r\n{% if headers.size &gt; 0 -%}\r\n            beforeSend: function(xhrObj){\r\n                // Request headers\r\n{% for header in headers -%}\r\n                xhrObj.setRequestHeader(&quot;{{header.name}}&quot;,&quot;{{header.value}}&quot;);\r\n{% endfor -%}\r\n            },\r\n{% endif -%}\r\n            type: &quot;{{method}}&quot;,\r\n{% if body -%}\r\n            // Request body\r\n            data: &quot;{{ body | replace:&#39;&quot;&#39;,&#39;\\&quot;&#39; }}&quot;,\r\n{% endif -%}\r\n        })\r\n        .done(function(data) {\r\n            alert(&quot;success&quot;);\r\n        })\r\n        .fail(function() {\r\n            alert(&quot;error&quot;);\r\n        });\r\n    });\r\n&lt;/script&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n",
+  "$ref-Original": "api-management/portalTemplates/DocumentationSamplesJs/template.html"
+}

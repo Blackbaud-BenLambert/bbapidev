@@ -1,0 +1,8 @@
+{
+  "Name": "DocumentationSamplesPhp",
+  "DisplayName": "Code samples: PHP",
+  "Description": "",
+  "Published": null,
+  "Draft": "&lt;?php\r\n// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)\r\nrequire_once &#39;HTTP/Request2.php&#39;;\r\n\r\n$request = new Http_Request2(&#39;{{scheme}}://{{host}}{{path}}&#39;);\r\n$url = $request-&gt;getUrl();\r\n\r\n{% if headers.size &gt; 0 -%}\r\n$headers = array(\r\n    // Request headers\r\n{% for header in headers -%}\r\n    &#39;{{header.name}}&#39; =&gt; &#39;{{header.value}}&#39;,\r\n{% endfor -%}\r\n);\r\n\r\n$request-&gt;setHeader($headers);\r\n{% endif -%}\r\n\r\n{% if parameters.size &gt; 0 -%}\r\n$parameters = array(\r\n    // Request parameters\r\n{% for parameter in parameters -%}\r\n    &#39;{{parameter.name}}&#39; =&gt; &#39;{{parameter.value}}&#39;,\r\n{% endfor -%}\r\n);\r\n\r\n$url-&gt;setQueryVariables($parameters);\r\n{% endif -%}\r\n\r\n$request-&gt;setMethod(HTTP_Request2::METHOD_{{method}});\r\n\r\n{% if body -%}\r\n// Request body\r\n$request-&gt;setBody(&quot;{{ body | replace:&#39;&quot;&#39;,&#39;\\&quot;&#39; }}&quot;);\r\n{% endif -%}\r\n\r\ntry\r\n{\r\n    $response = $request-&gt;send();\r\n    echo $response-&gt;getBody();\r\n}\r\ncatch (HttpException $ex)\r\n{\r\n    echo $ex;\r\n}\r\n\r\n?&gt;",
+  "$ref-Original": "api-management/portalTemplates/DocumentationSamplesPhp/template.html"
+}

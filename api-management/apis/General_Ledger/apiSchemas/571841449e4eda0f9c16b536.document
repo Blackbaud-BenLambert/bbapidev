@@ -1,0 +1,366 @@
+{
+  "definitions": {
+    "ApiCollection[Account]": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
+        }
+      }
+    },
+    "Account": {
+      "description": "General ledger account.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The account identifier.",
+          "type": "integer"
+        },
+        "AccountNumber": {
+          "description": "The account number.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "The account description.",
+          "type": "string"
+        }
+      }
+    },
+    "JournalCode": {
+      "description": "Journal entry code",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The identifier of the journal.",
+          "type": "integer"
+        },
+        "Code": {
+          "description": "The abbreviated code of the journal.",
+          "type": "string"
+        },
+        "Journal": {
+          "description": "The full journal name of the journal.",
+          "type": "string"
+        }
+      }
+    },
+    "JournalEntryBatch": {
+      "required": [
+        "Description",
+        "BatchStatus"
+      ],
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer"
+        },
+        "BatchId": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "BatchStatus": {
+          "enum": [
+            "Open",
+            "PendingApproval",
+            "Approved",
+            "Posted",
+            "Deleted"
+          ],
+          "type": "string"
+        },
+        "CreateInterfundSets": {
+          "type": "boolean"
+        },
+        "CreateBankAccountAdjustments": {
+          "type": "boolean"
+        },
+        "JournalEntries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JournalEntry"
+          }
+        }
+      }
+    },
+    "JournalEntry": {
+      "description": "Journal entry",
+      "required": [
+        "TypeCode",
+        "AccountId",
+        "AccountNumber",
+        "PostDate",
+        "Encumbrance",
+        "Journal",
+        "Reference",
+        "Amount",
+        "Distributions"
+      ],
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The journal entry identifier.",
+          "type": "integer"
+        },
+        "TypeCode": {
+          "description": "The journal entry transaction type (debit or credit).",
+          "enum": [
+            "Debit",
+            "Credit"
+          ],
+          "type": "string"
+        },
+        "LineNumber": {
+          "description": "The journal entry line number.",
+          "type": "integer"
+        },
+        "AccountId": {
+          "description": "The journal entry account identifier.",
+          "type": "integer"
+        },
+        "AccountNumber": {
+          "description": "The journal entry account number.",
+          "type": "string"
+        },
+        "PostDate": {
+          "format": "date-time",
+          "description": "The journal entry post date, in ISO 8601 format: 2016-03-14.",
+          "type": "string"
+        },
+        "Encumbrance": {
+          "description": "The journal entry encumbrance type.",
+          "enum": [
+            "Regular",
+            "Encumbrance"
+          ],
+          "type": "string"
+        },
+        "Journal": {
+          "description": "The full journal name of the journal entry.",
+          "type": "string"
+        },
+        "Reference": {
+          "description": "The journal entry reference.",
+          "type": "string"
+        },
+        "Amount": {
+          "format": "double",
+          "description": "The journal entry amount.",
+          "type": "number"
+        },
+        "Notes": {
+          "description": "The journal entry notes.",
+          "type": "string"
+        },
+        "Distributions": {
+          "description": "The journal entry distributions.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GlTransactionDistribution"
+          }
+        }
+      }
+    },
+    "GlTransactionDistribution": {
+      "description": "Journal entry transaction distribution.",
+      "required": [
+        "ProjectId",
+        "ProjectFriendlyId",
+        "TransactionCodes"
+      ],
+      "type": "object",
+      "properties": {
+        "ProjectId": {
+          "description": "The database identifier of the project.",
+          "type": "integer"
+        },
+        "ProjectFriendlyId": {
+          "description": "The user-visible identifier of the project.",
+          "type": "string"
+        },
+        "TransactionCodes": {
+          "description": "The distribution transaction codes.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionCodeValue"
+          }
+        },
+        "Amount": {
+          "format": "double",
+          "description": "The distribution amount. Only one of Amount or Percent can be specified.",
+          "type": "number"
+        },
+        "Percent": {
+          "format": "double",
+          "description": "The distribution journal entry amount percentage. Only one of Amount or Percent can be specified.",
+          "type": "number"
+        }
+      }
+    },
+    "TransactionCodeValue": {
+      "description": "Transaction code value",
+      "required": [
+        "Value"
+      ],
+      "type": "object",
+      "properties": {
+        "Name": {
+          "description": "The transaction code name",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The transaction code value",
+          "type": "string"
+        }
+      }
+    },
+    "ApiCollection[JournalEntryBatch]": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JournalEntryBatch"
+          }
+        }
+      }
+    },
+    "CreatedResult[Int32]": {
+      "description": "Information about created resources.",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The identifier of the created entity.",
+          "type": "integer"
+        }
+      }
+    },
+    "ValidationResult": {
+      "description": "A result of an operation that may or may not succeed",
+      "type": "object",
+      "properties": {
+        "IsValid": {
+          "description": "Indicates whether the request was valid.",
+          "type": "boolean"
+        },
+        "Errors": {
+          "description": "The list of errors received during validation.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ApiCollection[Project]": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          }
+        }
+      }
+    },
+    "Project": {
+      "description": "General ledger project",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The project database identifier.",
+          "type": "integer"
+        },
+        "Description": {
+          "description": "The project description.",
+          "type": "string"
+        },
+        "ProjectId": {
+          "description": "The project user-visible identifier.",
+          "type": "string"
+        },
+        "StartDate": {
+          "format": "date-time",
+          "description": "The project start date, in ISO 8601 format: 2016-03-14.",
+          "type": "string"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "description": "The project end date, in ISO 8601 format: 2016-03-14.",
+          "type": "string"
+        },
+        "Location": {
+          "description": "The project location.",
+          "type": "string"
+        },
+        "Division": {
+          "description": "The project division",
+          "type": "string"
+        },
+        "Department": {
+          "description": "The project department",
+          "type": "string"
+        },
+        "Status": {
+          "description": "The project status",
+          "type": "string"
+        }
+      }
+    },
+    "TransactionCode": {
+      "description": "Journal entry transaction code",
+      "type": "object",
+      "properties": {
+        "Id": {
+          "description": "The transaction code identifier.",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "The transaction code name.",
+          "type": "string"
+        },
+        "Description": {
+          "description": "The transaction code description.",
+          "type": "string"
+        }
+      }
+    },
+    "JournalCodeArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/JournalCode"
+      }
+    },
+    "JournalEntryArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/JournalEntry"
+      }
+    },
+    "TransactionCodeArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TransactionCode"
+      }
+    },
+    "TransactionCodeValueArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TransactionCodeValue"
+      }
+    }
+  }
+}

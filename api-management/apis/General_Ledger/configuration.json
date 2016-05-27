@@ -1,0 +1,617 @@
+{
+  "id": "/apis/56e832de9e4eda17580ef2fa",
+  "name": "General Ledger",
+  "$ref-description": "api-management/apis/General_Ledger/api.description.html",
+  "serviceUrl": "http://bb-gl-api.azurewebsites.net",
+  "path": "gl/v1",
+  "protocols": [
+    "https"
+  ],
+  "authenticationSettings": {
+    "oAuth2": {
+      "authorizationServerId": "54c9066b72126c0d0437b8b8",
+      "scope": null
+    },
+    "openid": null
+  },
+  "subscriptionKeyParameterNames": {
+    "header": "bb-api-subscription-key",
+    "query": "subscription-key"
+  },
+  "operations": [
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76cf",
+      "name": "Account (Search)",
+      "method": "GET",
+      "urlTemplate": "/accounts",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Account_(Search).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [
+          {
+            "name": "searchText",
+            "description": "Text to match. Can match account number, description, or class. A blank search will match all accounts.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "offset",
+            "description": "The number of records to skip, for use with pagination.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "limit",
+            "description": "The number of records to return. If not specified, the default is 100. The maximum allowed value is 1000.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          }
+        ],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Account_(Search).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "ApiCollection[Account]"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d0",
+      "name": "Journal codes (Get list)",
+      "method": "GET",
+      "urlTemplate": "/journalcodes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_codes_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_codes_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "JournalCodeArray"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d8",
+      "name": "Journal entry (Create)",
+      "method": "POST",
+      "urlTemplate": "/journalentrybatches/{id}/journalentries",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The identifier of the journal entry batch to which to add journal entries.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_(Create).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": null,
+            "schemaId": "571841449e4eda0f9c16b536",
+            "typeName": "JournalEntryArray"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_(Create).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_(Create).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_(Create).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d5",
+      "name": "Journal entry batch (Create)",
+      "method": "POST",
+      "urlTemplate": "/journalentrybatches",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Create).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": null,
+            "schemaId": "571841449e4eda0f9c16b536",
+            "typeName": "JournalEntryBatch"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Create).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "CreatedResult[Int32]"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d3",
+      "name": "Journal entry batch (Delete)",
+      "method": "DELETE",
+      "urlTemplate": "/journalentrybatches/{id}",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The identifier of the journal entry batch to delete.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Delete).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Delete).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Delete).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Delete).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d2",
+      "name": "Journal entry batch (Edit)",
+      "method": "PUT",
+      "urlTemplate": "/journalentrybatches/{id}",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The identifier of the journal entry batch to edit.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Edit).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": [
+          {
+            "contentType": "application/json",
+            "$ref-sample": null,
+            "schemaId": "571841449e4eda0f9c16b536",
+            "typeName": "JournalEntryBatch"
+          }
+        ]
+      },
+      "responses": [
+        {
+          "statusCode": 204,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Edit).response.204.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Edit).response.400.description.html",
+          "representations": [],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Edit).response.404.description.html",
+          "representations": [],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d4",
+      "name": "Journal entry batch (Get list)",
+      "method": "GET",
+      "urlTemplate": "/journalentrybatches",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [
+          {
+            "name": "offset",
+            "description": "The number of records to skip, for use with pagination.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "limit",
+            "description": "The number of records to return. If not specified, the default is 100. The maximum allowed value is 1000.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          }
+        ],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "ApiCollection[JournalEntryBatch]"
+            }
+          ],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get_list).response.400.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d1",
+      "name": "Journal entry batch (Get)",
+      "method": "GET",
+      "urlTemplate": "/journalentrybatches/{id}",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The journal entry batch identifier.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "JournalEntryBatch"
+            }
+          ],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get).response.400.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null
+            }
+          ],
+          "headers": []
+        },
+        {
+          "statusCode": 404,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Get).response.404.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d6",
+      "name": "Journal entry batch (Post)",
+      "method": "POST",
+      "urlTemplate": "/journalentrybatches/{id}/post",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The identifier of the journal entry batch to post.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Post).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Post).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "ValidationResult"
+            }
+          ],
+          "headers": []
+        },
+        {
+          "statusCode": 400,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Post).response.400.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d7",
+      "name": "Journal entry batch (Validate)",
+      "method": "GET",
+      "urlTemplate": "/journalentrybatches/{id}/validate",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The identifier of the journal entry batch to validate.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Validate).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Journal_entry_batch_(Validate).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "ValidationResult"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76d9",
+      "name": "Project (Search)",
+      "method": "GET",
+      "urlTemplate": "/projects",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Project_(Search).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [
+          {
+            "name": "searchText",
+            "description": "Text to match. Can match project Id or description. A blank search will match all projects.",
+            "type": "string",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "offset",
+            "description": "The number of records to skip, for use with pagination.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          },
+          {
+            "name": "limit",
+            "description": "The number of records to return. If not specified, the default is 100. The maximum allowed value is 1000.",
+            "type": "integer",
+            "defaultValue": null,
+            "required": false,
+            "values": []
+          }
+        ],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Project_(Search).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "ApiCollection[Project]"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76da",
+      "name": "Transaction code (Get list)",
+      "method": "GET",
+      "urlTemplate": "/transactioncodes",
+      "templateParameters": [],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Transaction_code_(Get_list).description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Transaction_code_(Get_list).response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "TransactionCodeArray"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    },
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/operations/56f1a8ec9e4eda14109e76db",
+      "name": "Transaction code value (Get list)",
+      "method": "GET",
+      "urlTemplate": "/transactioncodes/{id}/values",
+      "templateParameters": [
+        {
+          "name": "id",
+          "description": "The transaction code identifier.",
+          "type": "integer",
+          "defaultValue": null,
+          "required": true,
+          "values": []
+        }
+      ],
+      "$ref-description": "api-management/apis/General_Ledger/operations/Transaction_code_value_(Ge184ZSVV.description.html",
+      "request": {
+        "$ref-description": null,
+        "queryParameters": [],
+        "headers": [],
+        "representations": []
+      },
+      "responses": [
+        {
+          "statusCode": 200,
+          "$ref-description": "api-management/apis/General_Ledger/operations/Transaction_code_value_(Ge184ZSVV.response.200.description.html",
+          "representations": [
+            {
+              "contentType": "application/json",
+              "$ref-sample": null,
+              "schemaId": "571841449e4eda0f9c16b536",
+              "typeName": "TransactionCodeValueArray"
+            }
+          ],
+          "headers": []
+        }
+      ]
+    }
+  ],
+  "apiSchemas": [
+    {
+      "id": "/apis/56e832de9e4eda17580ef2fa/schemas/571841449e4eda0f9c16b536",
+      "contentType": "application/vnd.ms-azure-apim.swagger.definitions+json",
+      "$ref-documentValue": "api-management/apis/General_Ledger/apiSchemas/571841449e4eda0f9c16b536.document"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "/groups/54c12d71ce82280329020001",
+  "name": "Administrators",
+  "$ref-description": "api-management/groups/Administrators/description.html",
+  "builtIn": true,
+  "type": "system",
+  "externalId": null
+}

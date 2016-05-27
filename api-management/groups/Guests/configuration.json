@@ -1,0 +1,8 @@
+{
+  "id": "/groups/54c12d71ce82280329020003",
+  "name": "Guests",
+  "$ref-description": "api-management/groups/Guests/description.html",
+  "builtIn": true,
+  "type": "system",
+  "externalId": null
+}

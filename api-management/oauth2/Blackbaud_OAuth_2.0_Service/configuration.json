@@ -1,0 +1,27 @@
+{
+  "id": "/authorizationServers/54c9066b72126c0d0437b8b8",
+  "name": "Blackbaud OAuth 2.0 Service",
+  "description": "The official OAuth 2.0 provider service for Blackbaud.",
+  "clientRegistrationEndpoint": "https://www.thisisnotused.com",
+  "authorizationEndpoint": "https://oauth2.sky.blackbaud.com/authorization",
+  "authorizationMethods": [
+    "GET"
+  ],
+  "clientAuthenticationMethod": [
+    "Basic"
+  ],
+  "tokenBodyParameters": [],
+  "tokenEndpoint": "https://oauth2.sky.blackbaud.com/token",
+  "supportState": true,
+  "defaultScope": null,
+  "grantTypes": [
+    "authorizationCode"
+  ],
+  "bearerTokenSendingMethods": [
+    "authorizationHeader"
+  ],
+  "clientId": "4715BACA-3394-4F2D-BA44-F288FB04D437",
+  "clientSecret": "12345",
+  "resourceOwnerUsername": null,
+  "resourceOwnerPassword": null
+}

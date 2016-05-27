@@ -1,0 +1,22 @@
+{
+  "id": "/products/54c1372d72126c0990e57439",
+  "name": "SKY API Tech Preview",
+  "$ref-description": "api-management/products/SKY_API_Tech_Preview/product.description.html",
+  "terms": "",
+  "subscriptionRequired": true,
+  "approvalRequired": true,
+  "subscriptionsLimit": 1,
+  "state": "published",
+  "$refs-groups": [
+    "api-management/groups/Administrators/configuration.json",
+    "api-management/groups/Developers/configuration.json",
+    "api-management/groups/Guests/configuration.json",
+    "api-management/groups/Partners/configuration.json",
+    "api-management/groups/Blackbaud_Internal/configuration.json",
+    "api-management/groups/Blackbaud_SKY_API_Team/configuration.json"
+  ],
+  "$refs-apis": [
+    "api-management/apis/Constituent/configuration.json",
+    "api-management/apis/General_Ledger/configuration.json"
+  ]
+}

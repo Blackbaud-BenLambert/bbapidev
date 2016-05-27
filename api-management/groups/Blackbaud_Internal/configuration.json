@@ -1,0 +1,8 @@
+{
+  "id": "/groups/55f0888b9e4eda176c6b0852",
+  "name": "Blackbaud Internal",
+  "$ref-description": "api-management/groups/Blackbaud_Internal/description.html",
+  "builtIn": false,
+  "type": "custom",
+  "externalId": null
+}

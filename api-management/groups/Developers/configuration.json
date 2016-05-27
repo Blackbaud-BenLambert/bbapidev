@@ -1,0 +1,8 @@
+{
+  "id": "/groups/54c12d71ce82280329020002",
+  "name": "Developers",
+  "$ref-description": "api-management/groups/Developers/description.html",
+  "builtIn": true,
+  "type": "system",
+  "externalId": null
+}

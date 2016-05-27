@@ -1,0 +1,8 @@
+{
+  "id": "/groups/5522a81c9e4eda0c182b489b",
+  "name": "Partners",
+  "$ref-description": "api-management/groups/Partners/description.html",
+  "builtIn": false,
+  "type": "custom",
+  "externalId": null
+}

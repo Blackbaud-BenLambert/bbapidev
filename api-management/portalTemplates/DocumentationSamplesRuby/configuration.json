@@ -1,0 +1,8 @@
+{
+  "Name": "DocumentationSamplesRuby",
+  "DisplayName": "Code samples: Ruby",
+  "Description": "",
+  "Published": null,
+  "Draft": "require 'net/http'\r\n\r\nuri = URI('{{scheme}}://{{host}}{{path}}')\r\nuri.query = URI.encode_www_form({\r\n{% if parameters.size > 0 -%}\r\n    # Request parameters\r\n{% for parameter in parameters -%}\r\n    '{{parameter.name}}' => '{{parameter.value}}'{% unless forloop.last %},{% endunless %}\r\n{% endfor -%}\r\n{% endif -%}\r\n})\r\n\r\nrequest = Net::HTTP::{{ method | downcase | capitalize }}.new(uri.request_uri)\r\n{% for header in headers -%}\r\n# Request headers\r\nrequest['{{header.name}}'] = '{{header.value}}'\r\n{% endfor -%}\r\n{% if body -%}\r\n# Request body\r\nrequest.body = \"{{ body | replace:'\"','\\\"' }}\"\r\n{% endif -%}\r\n\r\nresponse = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|\r\n    http.request(request)\r\nend\r\n\r\nputs response.body\r\n",
+  "$ref-Original": "api-management/portalTemplates/DocumentationSamplesRuby/template.html"
+}

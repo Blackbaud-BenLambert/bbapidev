@@ -1,0 +1,8 @@
+{
+  "Name": "AppView",
+  "DisplayName": "Applications: View Application",
+  "Description": "",
+  "Published": null,
+  "Draft": "<h2>{{title}}</h2>\r\n{% if icon.url != \"\" %}\r\n<aside class=\"applications_aside\">\r\n  <div class=\"image-placeholder\">\r\n    <img src=\"{{icon.url}}\" alt=\"Application Icon\" />\r\n  </div>\r\n</aside>\r\n{% endif %}\r\n\r\n<article>\r\n  {% if url != \"\" %}\r\n    <a target=\"_blank\" href=\"{{url}}\">{{url}}</a>\r\n  {% endif %}\r\n  \r\n  <p>{{description}}</p>\r\n\r\n  {% if requirements != null %}\r\n  <h3>{% localized \"AppDetailsStrings|WebApplicationsRequirementsHeader\" %}</h3>\r\n  <p>{{requirements}}</p>\r\n  {% endif %}\r\n\r\n  {% if attachments.size > 0 %}\r\n  <h3>{% localized \"AppDetailsStrings|WebApplicationsScreenshotsHeader\" %}</h3>\r\n    {% for screenshot in attachments %}\r\n      {% if screenshot.type != \"Icon\" %}\r\n      <a href=\"{{screenshot.url}}\" data-lightbox=\"example-set\">\r\n          <img src=\"/Developer/Applications/Thumbnail?url={{screenshot.url}}\" alt='{% localized \"AppDetailsStrings|WebApplicationsScreenshotAlt\" %}' />\r\n      </a>\r\n      {% endif %}\r\n    {% endfor %}\r\n  {% endif %}\r\n</article>\r\n",
+  "$ref-Original": "api-management/portalTemplates/AppView/template.html"
+}
